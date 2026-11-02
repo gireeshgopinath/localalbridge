@@ -4,7 +4,7 @@ Validated on 2026-11-02, Europe/Berlin, on this Windows machine.
 
 ## Results
 
-- **55 tests passed** in 23.46 seconds. See `test-results.txt` and `tests/test_bridge.py`.
+- **55 tests passed** in 26.75 seconds on the portability release rerun. See `test-results.txt` and `tests/test_bridge.py`.
 - **10/10 pilot tasks accepted**, against the planned threshold of 8/10.
 - **10 total task attempts; zero repairs in the final pilot.**
 - All three implementation batches passed their independent integration checks and received both review decisions.
@@ -38,3 +38,5 @@ Initial calibration found and repaired persistence, subprocess/stdio, timeout, W
 - `README.md`: setup, operating instructions, and practical limits.
 
 The MCP server is registered as **local-workers**. Restart Codex or open a new chat to load it. The registered runtime uses the existing Python environment under this workspace's `work/venv`; `setup.ps1` can create a fresh environment and register a relocated copy.
+
+The subsequent 16K runtime tuning and additional accepted OpenCode/MCP smoke task are recorded in [PERFORMANCE.md](PERFORMANCE.md). The ten-task pilot above was not rerun after changing the cache/load settings.

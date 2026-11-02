@@ -1,0 +1,95 @@
+{
+  "batch_id": "8f71f62dd57d4e15a25f85f7845ba636",
+  "status": "completed",
+  "model": "lmstudio/qwen3.8-27b",
+  "context_length": 16384,
+  "profile": "rtx5080-16k",
+  "criteria": [
+    "Strip whitespace and lowercase email text.",
+    "Keep empty strings valid.",
+    "Raise TypeError for None and numeric input."
+  ],
+  "decisions": [
+    {
+      "event": "review_approved",
+      "actor": "orchestrator",
+      "feedback": "Inspected the complete diff and source, the immutable unittest oracle, and independently captured verification evidence. String validation, strip/lower behavior, empty inputs, and TypeError cases meet the approved criteria. Integrate and rerun the same check."
+    },
+    {
+      "event": "final_accepted",
+      "actor": "orchestrator",
+      "feedback": "Inspected the entire integrated patch and full file. The integration preserves the approved implementation, and the bridge reran the immutable unittest oracle successfully with exit code 0. All three criteria are satisfied; accept the tuned-profile smoke task."
+    }
+  ],
+  "notifications": [
+    {
+      "meta": null,
+      "level": "info",
+      "logger": "local-workers",
+      "data": {
+        "batch_id": "8f71f62dd57d4e15a25f85f7845ba636",
+        "status": "needs_review",
+        "error": ""
+      }
+    },
+    {
+      "meta": null,
+      "level": "info",
+      "logger": "local-workers",
+      "data": {
+        "batch_id": "8f71f62dd57d4e15a25f85f7845ba636",
+        "status": "final_review",
+        "error": ""
+      }
+    }
+  ],
+  "local_seconds": 45.829,
+  "tool_calls": 3,
+  "attempts": 1,
+  "repairs": 0,
+  "cloud_tokens": null,
+  "original_repository_clean": true,
+  "artifacts": {
+    "tasks/email/attempt-1": {
+      "patch": "diff --git a/email_utils.py b/email_utils.py\nindex 4e6ee4f..16bf1d5 100644\n--- a/email_utils.py\n+++ b/email_utils.py\n@@ -1,2 +1,4 @@\n def normalize_email(value):\n-    return value\n+    if not isinstance(value, str):\n+        raise TypeError(\"value must be a string\")\n+    return value.strip().lower()\n",
+      "source": "=== email_utils.py ===\ndef normalize_email(value):\n    if not isinstance(value, str):\n        raise TypeError(\"value must be a string\")\n    return value.strip().lower()\n\n",
+      "checks": [
+        {
+          "argv": [
+            "python",
+            "-m",
+            "unittest",
+            "-q",
+            "oracle"
+          ],
+          "exit_code": 0,
+          "success": true,
+          "stdout": "",
+          "stderr": "----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n"
+        }
+      ]
+    },
+    "integration-1": {
+      "patch": "diff --git a/email_utils.py b/email_utils.py\nindex 4e6ee4f..16bf1d5 100644\n--- a/email_utils.py\n+++ b/email_utils.py\n@@ -1,2 +1,4 @@\n def normalize_email(value):\n-    return value\n+    if not isinstance(value, str):\n+        raise TypeError(\"value must be a string\")\n+    return value.strip().lower()\n",
+      "source": "=== email_utils.py ===\ndef normalize_email(value):\n    if not isinstance(value, str):\n        raise TypeError(\"value must be a string\")\n    return value.strip().lower()\n\n",
+      "checks": [
+        {
+          "argv": [
+            "python",
+            "-m",
+            "unittest",
+            "-q",
+            "oracle"
+          ],
+          "exit_code": 0,
+          "success": true,
+          "stdout": "",
+          "stderr": "----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n"
+        }
+      ]
+    }
+  },
+  "oracle": "import unittest\nfrom email_utils import normalize_email\nclass Checks(unittest.TestCase):\n    def test_normalize(self):\n        self.assertEqual(normalize_email('  Alice@EXAMPLE.COM  '),'alice@example.com')\n        self.assertEqual(normalize_email(''),'')\n        self.assertEqual(normalize_email('   '),'')\n        for value in [None,42]:\n            with self.assertRaises(TypeError): normalize_email(value)\n",
+  "effective_speculative_draft_tokens": 3,
+  "runtime_note": "Native API and backend command line confirmed three draft tokens; SDK request for one was ineffective."
+}

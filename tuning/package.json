@@ -1,0 +1,7 @@
+{
+  "name": "local-worker-runtime-tuning",
+  "private": true,
+  "type": "module",
+  "scripts": {"load": "node load-profile.mjs", "load:auto": "node load-profile.mjs --auto"},
+  "dependencies": {"@lmstudio/sdk": "2.1.0"}
+}

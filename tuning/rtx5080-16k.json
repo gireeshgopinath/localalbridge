@@ -1,0 +1,37 @@
+{
+  "model": "qwen3.8-27b",
+  "description": "Measured text coding profile: RTX 5080 Laptop 16GB, Ultra 9 275HX. Context remains 16384.",
+  "config": {
+    "autoFit": false,
+    "gpu": {"ratio": "max"},
+    "gpuStrictVramCap": true,
+    "contextLength": 16384,
+    "maxParallelPredictions": 1,
+    "useUnifiedKvCache": true,
+    "flashAttention": true,
+    "offloadKVCacheToGpu": true,
+    "llamaKCacheQuantizationType": "q8_0",
+    "llamaVCacheQuantizationType": "q8_0",
+    "evalBatchSize": 2048,
+    "physicalBatchSize": 512,
+    "contextCheckpoints": 32,
+    "speculativeDraftMtp": true,
+    "speculativeDraftSimple": false,
+    "speculativeDraftModel": "",
+    "speculativeDraftMaxTokens": 3,
+    "speculativeDraftMinTokens": 0,
+    "speculativeDraftMinContinueProbability": 0,
+    "keepModelInMemory": true,
+    "tryMmap": true,
+    "llamaCppArgumentsOverride": {
+      "enabled": true,
+      "disabledParameters": ["--n-gpu-layers", "--threads", "--mmproj-offload"],
+      "overrideParameters": [
+        {"key": "--n-gpu-layers", "value": "52"},
+        {"key": "--no-mmproj-offload", "value": ""},
+        {"key": "--threads", "value": "8"}
+      ],
+      "excludeAllConfig": false
+    }
+  }
+}

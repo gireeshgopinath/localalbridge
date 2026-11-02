@@ -4,7 +4,16 @@ Codex plans tasks, evaluates evidence, and makes acceptance decisions. OpenCode 
 
 ## Start on this machine
 
-The bridge is registered as `local-workers` after setup. Restart Codex or open a new chat to load its five tools. Keep LM Studio's server running on `127.0.0.1:1234`, with the model loaded:
+The bridge is registered as `local-workers` after setup. Restart Codex or open a new chat to load its five tools. Keep LM Studio's server running on `127.0.0.1:1234`. On the measured RTX 5080 Laptop 16GB machine, load the tuned profile using Node.js 22+:
+
+```powershell
+npm ci --prefix tuning --ignore-scripts
+npm run load --prefix tuning
+```
+
+This retains **16,384 context tokens**, one inference slot, and the existing Qwen weights. See [PERFORMANCE.md](PERFORMANCE.md) for measured timings, hardware requirements, the automatic-placement alternative, and restoration. Reapply this command after unloading the model or restarting LM Studio; it does not edit LM Studio's global defaults.
+
+For standard automatic placement without the tuned profile:
 
 ```powershell
 lms load qwen3.8-27b --context-length 16384 --parallel 1 --identifier qwen3.8-27b --yes
