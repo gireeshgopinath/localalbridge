@@ -1,0 +1,12 @@
+{
+  "repo_path": "C:/path/to/clean-repository",
+  "tasks": [{
+    "id": "add-helper",
+    "role": "implement",
+    "objective": "Implement add(a, b) in utils.py without changing existing public behavior.",
+    "allowed_files": ["utils.py"],
+    "acceptance_criteria": ["Handles positive, negative, and floating-point inputs; existing checks pass."],
+    "verification_commands": [["python", "-m", "unittest", "discover", "-s", "tests"]],
+    "dependencies": []
+  }]
+}

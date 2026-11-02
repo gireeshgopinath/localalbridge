@@ -1,0 +1,28 @@
+{
+  "status": "completed",
+  "batch_id": "165f60845f2448e788dc9603aff980d8",
+  "local_seconds": 28.281,
+  "checks_passed": true,
+  "notifications": [
+    {
+      "meta": null,
+      "level": "info",
+      "logger": "local-workers",
+      "data": {
+        "batch_id": "165f60845f2448e788dc9603aff980d8",
+        "status": "needs_review",
+        "error": ""
+      }
+    },
+    {
+      "meta": null,
+      "level": "info",
+      "logger": "local-workers",
+      "data": {
+        "batch_id": "165f60845f2448e788dc9603aff980d8",
+        "status": "final_review",
+        "error": ""
+      }
+    }
+  ]
+}

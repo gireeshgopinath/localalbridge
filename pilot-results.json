@@ -1,0 +1,125 @@
+{
+  "accepted_tasks": 10,
+  "submitted_tasks": 10,
+  "accepted_ids": [
+    "add",
+    "bools",
+    "clamp",
+    "docs",
+    "explore",
+    "paths",
+    "slug",
+    "stats",
+    "tests",
+    "unique"
+  ],
+  "attempts": 10,
+  "local_seconds": 940.92,
+  "tool_calls": 31,
+  "cloud_tokens": null,
+  "token_usage_complete": false,
+  "orchestrator_interactions": 121,
+  "orchestrator_decisions": [
+    {
+      "batch_id": "199d4a3129e247b396eb0c854dc9ce67",
+      "event": "review_approved"
+    },
+    {
+      "batch_id": "199d4a3129e247b396eb0c854dc9ce67",
+      "event": "final_accepted"
+    },
+    {
+      "batch_id": "c14989a7941a409788aed922e706fb80",
+      "event": "review_approved"
+    },
+    {
+      "batch_id": "c14989a7941a409788aed922e706fb80",
+      "event": "final_accepted"
+    },
+    {
+      "batch_id": "d7eddbc0989e43aca87bc66be22f4cb7",
+      "event": "review_approved"
+    },
+    {
+      "batch_id": "d7eddbc0989e43aca87bc66be22f4cb7",
+      "event": "final_accepted"
+    },
+    {
+      "batch_id": "fce1ea1034b2491a88e0f35f5cbfddc6",
+      "event": "review_approved"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "bools",
+      "batch_id": "199d4a3129e247b396eb0c854dc9ce67",
+      "accepted": true,
+      "attempts": 1,
+      "checks_passed": true
+    },
+    {
+      "id": "unique",
+      "batch_id": "199d4a3129e247b396eb0c854dc9ce67",
+      "accepted": true,
+      "attempts": 1,
+      "checks_passed": true
+    },
+    {
+      "id": "stats",
+      "batch_id": "199d4a3129e247b396eb0c854dc9ce67",
+      "accepted": true,
+      "attempts": 1,
+      "checks_passed": true
+    },
+    {
+      "id": "add",
+      "batch_id": "c14989a7941a409788aed922e706fb80",
+      "accepted": true,
+      "attempts": 1,
+      "checks_passed": true
+    },
+    {
+      "id": "clamp",
+      "batch_id": "c14989a7941a409788aed922e706fb80",
+      "accepted": true,
+      "attempts": 1,
+      "checks_passed": true
+    },
+    {
+      "id": "slug",
+      "batch_id": "c14989a7941a409788aed922e706fb80",
+      "accepted": true,
+      "attempts": 1,
+      "checks_passed": true
+    },
+    {
+      "id": "tests",
+      "batch_id": "d7eddbc0989e43aca87bc66be22f4cb7",
+      "accepted": true,
+      "attempts": 1,
+      "checks_passed": true
+    },
+    {
+      "id": "docs",
+      "batch_id": "d7eddbc0989e43aca87bc66be22f4cb7",
+      "accepted": true,
+      "attempts": 1,
+      "checks_passed": true
+    },
+    {
+      "id": "paths",
+      "batch_id": "d7eddbc0989e43aca87bc66be22f4cb7",
+      "accepted": true,
+      "attempts": 1,
+      "checks_passed": true
+    },
+    {
+      "id": "explore",
+      "batch_id": "fce1ea1034b2491a88e0f35f5cbfddc6",
+      "accepted": true,
+      "attempts": 1,
+      "checks_passed": null
+    }
+  ],
+  "threshold_met": true
+}

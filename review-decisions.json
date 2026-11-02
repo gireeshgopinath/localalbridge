@@ -1,0 +1,346 @@
+[
+  {
+    "batch_id": "d7eddbc0989e43aca87bc66be22f4cb7",
+    "status": "completed",
+    "tasks": [
+      {
+        "id": "tests",
+        "objective": "Create unittest tests for baseline.double.",
+        "allowed_files": [
+          "tests/test_baseline.py"
+        ],
+        "acceptance_criteria": [
+          "At least three assertions covering zero, a positive number and a negative number.",
+          "Use unittest.TestCase and make discover -s tests pass."
+        ],
+        "verification_commands": [
+          [
+            "python",
+            "oracle.py",
+            "tests"
+          ],
+          [
+            "python",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests"
+          ]
+        ],
+        "dependencies": [],
+        "role": "implement"
+      },
+      {
+        "id": "docs",
+        "objective": "Document baseline.double with a short usage example.",
+        "allowed_files": [
+          "USAGE.md"
+        ],
+        "acceptance_criteria": [
+          "Explain multiplying a number by two and show double(3) producing 6."
+        ],
+        "verification_commands": [
+          [
+            "python",
+            "oracle.py",
+            "docs"
+          ]
+        ],
+        "dependencies": [],
+        "role": "implement"
+      },
+      {
+        "id": "paths",
+        "objective": "Implement file_extension(path) returning the last filename extension including its dot.",
+        "allowed_files": [
+          "paths.py"
+        ],
+        "acceptance_criteria": [
+          "archive.tar.gz returns .gz; README and .bashrc return empty; folder/name.txt returns .txt."
+        ],
+        "verification_commands": [
+          [
+            "python",
+            "oracle.py",
+            "paths"
+          ]
+        ],
+        "dependencies": [],
+        "role": "implement"
+      }
+    ],
+    "decisions": [
+      {
+        "id": 104,
+        "batch_id": "d7eddbc0989e43aca87bc66be22f4cb7",
+        "event": "review_approved",
+        "actor": "orchestrator",
+        "feedback": "Inspected all patches, complete contexts, reports, and exact check records. The unittest file imports the real baseline.double and asserts zero/positive/negative cases; actual unittest discovery passed. Documentation accurately explains doubling and double(3)=6. file_extension correctly handles the required basename, hidden-file and final-extension cases, including both slash forms. All oracle checks exited 0. The reviewer example for dir/.hidden is incorrect (the code returns empty), and is not relied on. Approve integration.",
+        "created": 1793646675.5808835
+      },
+      {
+        "id": 128,
+        "batch_id": "d7eddbc0989e43aca87bc66be22f4cb7",
+        "event": "final_accepted",
+        "actor": "orchestrator",
+        "feedback": "Final acceptance after inspecting the full integrated patch, all three complete file contexts, all four independent reruns (including actual unittest discovery), and the complete local review text. The combined tests/docs/path helper match the individually reviewed code and satisfy every stated acceptance criterion. No source changes were made to the original fixture checkout.",
+        "created": 1793646889.8166077
+      }
+    ],
+    "read_receipts": {
+      "tasks/tests/attempt-1/diff.patch": 642,
+      "tasks/tests/attempt-1/context.txt": 486,
+      "tasks/tests/attempt-1/checks.json": 1848,
+      "tasks/tests/attempt-1/report.json": 3880,
+      "tasks/docs/attempt-1/diff.patch": 319,
+      "tasks/docs/attempt-1/context.txt": 201,
+      "tasks/docs/attempt-1/checks.json": 879,
+      "tasks/docs/attempt-1/report.json": 2546,
+      "tasks/paths/attempt-1/diff.patch": 486,
+      "tasks/paths/attempt-1/context.txt": 371,
+      "tasks/paths/attempt-1/checks.json": 884,
+      "tasks/paths/attempt-1/report.json": 2918,
+      "integration-1/diff.patch": 1447,
+      "integration-1/context.txt": 1060,
+      "integration-1/checks.json": 3533,
+      "integration-1/review.json": 2793,
+      "integration-1/review/process/stdout.log": 3673
+    },
+    "integration_checks_passed": true
+  },
+  {
+    "batch_id": "199d4a3129e247b396eb0c854dc9ce67",
+    "status": "completed",
+    "tasks": [
+      {
+        "id": "bools",
+        "objective": "Implement parse_bool(text).",
+        "allowed_files": [
+          "bools.py"
+        ],
+        "acceptance_criteria": [
+          "Trim whitespace and ignore case for true/false.",
+          "Return bool and raise ValueError for any other string."
+        ],
+        "verification_commands": [
+          [
+            "python",
+            "oracle.py",
+            "bools"
+          ]
+        ],
+        "dependencies": [],
+        "role": "implement"
+      },
+      {
+        "id": "unique",
+        "objective": "Implement stable_unique(values) for a list of integers.",
+        "allowed_files": [
+          "unique.py"
+        ],
+        "acceptance_criteria": [
+          "Return first occurrences in original order, without mutating input; empty input returns empty list."
+        ],
+        "verification_commands": [
+          [
+            "python",
+            "oracle.py",
+            "unique"
+          ]
+        ],
+        "dependencies": [],
+        "role": "implement"
+      },
+      {
+        "id": "stats",
+        "objective": "Implement mean(values) for a nonempty list of numbers.",
+        "allowed_files": [
+          "stats.py"
+        ],
+        "acceptance_criteria": [
+          "Return arithmetic mean; raise ValueError for empty input."
+        ],
+        "verification_commands": [
+          [
+            "python",
+            "oracle.py",
+            "stats"
+          ]
+        ],
+        "dependencies": [],
+        "role": "implement"
+      }
+    ],
+    "decisions": [
+      {
+        "id": 79,
+        "batch_id": "199d4a3129e247b396eb0c854dc9ce67",
+        "event": "review_approved",
+        "actor": "orchestrator",
+        "feedback": "Inspected every patch, full source context, criteria, and exact check records. parse_bool handles trimmed case-insensitive true/false and rejects other strings; stable_unique preserves first occurrences without mutation for integers; mean computes sum/len and rejects empty lists. All independent oracle commands exited 0. The reviewer could not see oracle.py in its captured changed-file subset; the immutable oracle exists in the fixture and the recorded runner evidence confirms execution. Approve integration.",
+        "created": 1793646399.285267
+      },
+      {
+        "id": 121,
+        "batch_id": "199d4a3129e247b396eb0c854dc9ce67",
+        "event": "final_accepted",
+        "actor": "orchestrator",
+        "feedback": "Final acceptance after full integrated patch/context inspection and all three independent oracle reruns, each exit 0. Boolean parsing, stable integer deduplication, and arithmetic mean/error handling match the criteria. Source matches the individually approved code; no integration conflicts or required changes.",
+        "created": 1793646840.1607823
+      }
+    ],
+    "read_receipts": {
+      "tasks/bools/attempt-1/diff.patch": 522,
+      "tasks/bools/attempt-1/context.txt": 405,
+      "tasks/bools/attempt-1/checks.json": 884,
+      "tasks/bools/attempt-1/report.json": 3393,
+      "tasks/unique/attempt-1/diff.patch": 327,
+      "tasks/unique/attempt-1/context.txt": 213,
+      "tasks/unique/attempt-1/checks.json": 889,
+      "tasks/unique/attempt-1/report.json": 2816,
+      "tasks/stats/attempt-1/diff.patch": 398,
+      "tasks/stats/attempt-1/context.txt": 285,
+      "tasks/stats/attempt-1/checks.json": 884,
+      "tasks/stats/attempt-1/report.json": 2497,
+      "integration-1/diff.patch": 1247,
+      "integration-1/context.txt": 905,
+      "integration-1/checks.json": 2593,
+      "integration-1/review.json": 2316
+    },
+    "integration_checks_passed": true
+  },
+  {
+    "batch_id": "fce1ea1034b2491a88e0f35f5cbfddc6",
+    "status": "completed",
+    "tasks": [
+      {
+        "id": "explore",
+        "objective": "Read README.md and baseline.py once. Identify the existing function and test convention in a short report. Do not edit.",
+        "allowed_files": [],
+        "acceptance_criteria": [
+          "Correctly identify baseline.double and unittest, without changes."
+        ],
+        "verification_commands": [],
+        "dependencies": [],
+        "role": "explore"
+      }
+    ],
+    "decisions": [
+      {
+        "id": 14,
+        "batch_id": "fce1ea1034b2491a88e0f35f5cbfddc6",
+        "event": "review_approved",
+        "actor": "orchestrator",
+        "feedback": "Inspected complete report against the fixture. Function purpose and unittest convention are correct, with no changes. The extra directory inventory wording is not exhaustive and is not relied on.",
+        "created": 1793645972.6215634
+      }
+    ],
+    "read_receipts": {
+      "tasks/explore/attempt-1/report.json": 2467
+    },
+    "integration_checks_passed": null
+  },
+  {
+    "batch_id": "c14989a7941a409788aed922e706fb80",
+    "status": "completed",
+    "tasks": [
+      {
+        "id": "add",
+        "objective": "Implement add(a, b), returning the sum of two numbers.",
+        "allowed_files": [
+          "add.py"
+        ],
+        "acceptance_criteria": [
+          "Supports positive, negative and floating-point inputs."
+        ],
+        "verification_commands": [
+          [
+            "python",
+            "oracle.py",
+            "add"
+          ]
+        ],
+        "dependencies": [],
+        "role": "implement"
+      },
+      {
+        "id": "clamp",
+        "objective": "Repair clamp(value, low, high) to constrain a number inclusively.",
+        "allowed_files": [
+          "clamp.py"
+        ],
+        "acceptance_criteria": [
+          "Inside range stays unchanged; values outside return the nearest limit.",
+          "Raise ValueError when low > high."
+        ],
+        "verification_commands": [
+          [
+            "python",
+            "oracle.py",
+            "clamp"
+          ]
+        ],
+        "dependencies": [],
+        "role": "implement"
+      },
+      {
+        "id": "slug",
+        "objective": "Implement slugify(text) for ASCII URL slugs.",
+        "allowed_files": [
+          "slug.py"
+        ],
+        "acceptance_criteria": [
+          "Lowercase ASCII letters/digits; replace each run of other characters with one hyphen; strip leading/trailing hyphens."
+        ],
+        "verification_commands": [
+          [
+            "python",
+            "oracle.py",
+            "slug"
+          ]
+        ],
+        "dependencies": [],
+        "role": "implement"
+      }
+    ],
+    "decisions": [
+      {
+        "id": 61,
+        "batch_id": "c14989a7941a409788aed922e706fb80",
+        "event": "review_approved",
+        "actor": "orchestrator",
+        "feedback": "Inspected all three patches, complete source contexts, exact independent oracle commands/results, and full local reviews (including the slug raw review response). add uses native addition, clamp enforces inclusive bounds and invalid-range errors, and slug uses the specified lowercase/filter/collapse/strip algorithm. All checks pass. The local reviewer example for Cafe with an accent is inaccurate: trailing hyphen is stripped; this does not affect the correct implementation. Approve integration.",
+        "created": 1793646303.8325152
+      },
+      {
+        "id": 110,
+        "batch_id": "c14989a7941a409788aed922e706fb80",
+        "event": "final_accepted",
+        "actor": "orchestrator",
+        "feedback": "Final integration accepted after inspecting the complete combined patch/context and all three independent oracle reruns (exit 0). Integrated code matches the individually reviewed implementations. The reviewer non-string coercion observation is informational: the slug task does not require rejection of non-string input and all specified behavior is met.",
+        "created": 1793646704.1019175
+      }
+    ],
+    "read_receipts": {
+      "tasks/add/attempt-1/diff.patch": 192,
+      "tasks/add/attempt-1/context.txt": 89,
+      "tasks/add/attempt-1/checks.json": 874,
+      "tasks/add/attempt-1/report.json": 2075,
+      "tasks/clamp/attempt-1/diff.patch": 265,
+      "tasks/clamp/attempt-1/context.txt": 152,
+      "tasks/clamp/attempt-1/checks.json": 884,
+      "tasks/clamp/attempt-1/report.json": 2418,
+      "tasks/slug/attempt-1/diff.patch": 497,
+      "tasks/slug/attempt-1/context.txt": 381,
+      "tasks/slug/attempt-1/checks.json": 879,
+      "tasks/slug/attempt-1/report.json": 3936,
+      "tasks/slug/attempt-1/review/process/stdout.log": 3026,
+      "integration-1/diff.patch": 954,
+      "integration-1/context.txt": 624,
+      "integration-1/checks.json": 2585,
+      "integration-1/review.json": 1942
+    },
+    "integration_checks_passed": true
+  }
+]
